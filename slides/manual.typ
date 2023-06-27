@@ -32,6 +32,14 @@
     - `slide-count`: include the total number of slides, default `true`
 ]
 
+#slide(title: "Optional arguments example")[
+    ```typst
+cambridge-theme(debug: true,
+                numbering: "i / I",
+                slide-count: false),
+    ```
+]
+
 #slide(title: "Slide types", theme-variant: "default")[
     There are just two slide variants: `title slide` and `default`.
 ]
