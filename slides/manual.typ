@@ -4,7 +4,7 @@
 #show: slides.with(
     authors: "Andrew Jeffery",
     short-authors: "A. Jeffery",
-    title: [Cambridge `typst-slides` templates],
+    title: [Cambridge `typst-slides` template],
     subtitle: "",
     short-title: "Cambridge template",
     date: [27#super("th") June 2023],
