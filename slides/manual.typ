@@ -25,6 +25,13 @@
     ```
 ]
 
+#slide(title: "Optional arguments")[
+    You can pass the following arguments to the theme on instantiation `cambridge-theme((...))`:
+    - `debug`: enable debug globally, default `false`
+    - `numbering`: numbering format for slide numbers, default `"1 / 1"`
+    - `slide-count`: include the total number of slides, default `true`
+]
+
 #slide(title: "Slide types", theme-variant: "default")[
     There are just two slide variants: `title slide` and `default`.
 ]

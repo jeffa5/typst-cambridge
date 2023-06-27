@@ -1,6 +1,6 @@
 // This theme is inspired by the Cambridge University presentation templates
 
-#let cambridge-theme() = data => {
+#let cambridge-theme(debug: false, numbering: "1 / 1", slide-count: true) = data => {
 
   let blue = rgb("#0072CF")
   let light-blue = rgb("#68ACE5")
@@ -9,10 +9,16 @@
   let blue-text = rgb("#1f4e79")
 
   let debug-stroke = 1pt + red
+  let stroke(slide-info) = if debug {
+    debug-stroke
+  } else if "debug" in slide-info and slide-info.debug {
+    debug-stroke
+  } else {
+    none
+  }
 
-  let final-slide = locate(loc => { counter("logical-slide").final(loc).first() })
-  let logical-slide = counter("logical-slide").display()
-  let slide-number = [#logical-slide / #final-slide]
+  let logical-slide = counter("logical-slide")
+  let slide-number = logical-slide.display(numbering, both: slide-count)
   let make-footer(content) = text(size: 0.5em, content)
   let footer = make-footer[#data.short-title #h(2em) #data.short-authors #h(2em) #slide-number]
 
@@ -22,7 +28,7 @@
     }
 
     set text(fill: white)
-    let stroke = if "debug" in slide-info and slide-info.debug { debug-stroke } else { none }
+    let stroke = stroke(slide-info)
 
     block(
       width: 100%, height: 30%, outset: 0em, inset: (x: 2em), breakable: false,
@@ -68,7 +74,7 @@
     let body = bodies.first()
 
     set text(fill: blue-text)
-    let stroke = if "debug" in slide-info and slide-info.debug { debug-stroke } else { none }
+    let stroke = stroke(slide-info)
 
     block(
       width: 100%, height: 20%, outset: 0em, inset: (x: 2em), breakable: false,
