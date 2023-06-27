@@ -1,8 +1,9 @@
 // This theme is inspired by the Cambridge University presentation templates
 
-#import "typst-slides/slides.typ": *
 
-#let cambridge-theme(debug: false, numbering: "1 / 1", slide-count: true, footer: none) = data => {
+#let cambridge-theme(slides: "typst-slides/slides.typ", debug: false, numbering: "1 / 1", slide-count: true, footer: none) = data => {
+
+  import slides: *
 
   let blue = rgb("#0072CF")
   let light-blue = rgb("#68ACE5")
