@@ -52,9 +52,11 @@
     block(
       width: 100%, height: 15%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: dark-blue,
-      align(left + horizon, [
-        #text(size: .9em)[ #box(data.authors.join(", ")) #h(1fr) #data.date ]
-      ])
+      [
+      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", "))])
+      #h(1fr)
+      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.date)])
+      ]
     )
     block(
       width: 100%, height: 5%, outset: 0em, inset: (x: 2em), breakable: false,
