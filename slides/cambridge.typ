@@ -68,11 +68,6 @@
   }
 
   let main(slide-info, bodies) = {
-    if bodies.len() != 1 {
-      panic("default variant of Cambridge theme only supports one body per slide")
-    }
-    let body = bodies.first()
-
     set text(fill: blue-text)
     let stroke = stroke(slide-info)
 
@@ -84,7 +79,7 @@
     block(
       width: 100%, height: 70%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: white, clip: true,
-      align(left + horizon, body )
+      align(left + horizon, [ #for body in bodies { body } ])
     )
     block(
       width: 100%, height: 10%, outset: 0em, inset: (x: 2em), breakable: false,
