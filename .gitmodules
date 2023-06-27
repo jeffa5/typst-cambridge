@@ -1,0 +1,6 @@
+[submodule "typst-slides"]
+	path = slides/typst-slides
+	url = https://github.com/andreasKroepelin/typst-slides.git
+[submodule "slides/typst-slides"]
+	path = slides/typst-slides
+	url = https://github.com/andreasKroepelin/typst-slides.git
