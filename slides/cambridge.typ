@@ -9,7 +9,6 @@
   let blue-text = rgb("#1f4e79")
 
   let debug-stroke = 1pt + red
-  let stroke = if "debug" in data and data.debug { debug-stroke } else { none }
 
   let final-slide = locate(loc => { counter("logical-slide").final(loc).first() })
   let logical-slide = counter("logical-slide").display()
@@ -23,6 +22,7 @@
     }
 
     set text(fill: white)
+    let stroke = if "debug" in slide-info and slide-info.debug { debug-stroke } else { none }
 
     block(
       width: 100%, height: 30%, outset: 0em, inset: (x: 2em), breakable: false,
@@ -68,6 +68,7 @@
     let body = bodies.first()
 
     set text(fill: blue-text)
+    let stroke = if "debug" in slide-info and slide-info.debug { debug-stroke } else { none }
 
     block(
       width: 100%, height: 20%, outset: 0em, inset: (x: 2em), breakable: false,

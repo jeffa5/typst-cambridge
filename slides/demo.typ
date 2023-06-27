@@ -18,3 +18,7 @@
     - The title slide
     - and this one!
 ]
+
+#slide(title:"Debug slide", debug: true)[
+  And even debugging!
+]
