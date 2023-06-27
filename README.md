@@ -1,7 +1,9 @@
 # Typst Cambridge templates
 
-Currently just a University of Cambridge [typst-slides](https://github.com/andreasKroepelin/typst-slides) template.
+A set of University of Cambridge styled templates.
 
 ## Slides
+
+Using [typst-slides](https://github.com/andreasKroepelin/typst-slides) template.
 
 See the [manual](slides/manual.pdf).
