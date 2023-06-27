@@ -1,6 +1,7 @@
 #import "typst-slides/slides.typ": *
 #import "cambridge.typ": *
 
+
 #show: slides.with(
     authors: "Andrew Jeffery",
     short-authors: "A. Jeffery",
@@ -30,13 +31,16 @@
     - `debug`: enable debug globally, default `false`
     - `numbering`: numbering format for slide numbers, default `"1 / 1"`
     - `slide-count`: include the total number of slides, default `true`
+    - `footer`: function to produce a custom footer, default `none`
 ]
 
 #slide(title: "Optional arguments example")[
     ```typst
-cambridge-theme(debug: true,
+#let footer(section: none, slide-number: none) = [#text(fill: green, [#slide-number span #section])]
+#cambridge-theme(debug: true,
                 numbering: "i / I",
-                slide-count: false),
+                slide-count: false,
+                footer: footer)
     ```
 ]
 

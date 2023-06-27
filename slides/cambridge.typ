@@ -1,6 +1,8 @@
 // This theme is inspired by the Cambridge University presentation templates
 
-#let cambridge-theme(debug: false, numbering: "1 / 1", slide-count: true) = data => {
+#import "typst-slides/slides.typ": *
+
+#let cambridge-theme(debug: false, numbering: "1 / 1", slide-count: true, footer: none) = data => {
 
   let blue = rgb("#0072CF")
   let light-blue = rgb("#68ACE5")
@@ -17,10 +19,13 @@
     none
   }
 
-  let logical-slide = counter("logical-slide")
   let slide-number = logical-slide.display(numbering, both: slide-count)
   let make-footer(content) = text(size: 0.5em, content)
-  let footer = make-footer[#data.short-title #h(2em) #data.short-authors #h(2em) #slide-number]
+  let footer = if footer != none {
+    make-footer(footer(section: section.display(), slide-number: slide-number))
+  } else {
+    make-footer[#data.short-title #h(2em) #data.short-authors #h(2em) #slide-number #section.display()]
+  }
 
   let title-slide(slide-info, bodies) = {
     if bodies.len() != 0 {
