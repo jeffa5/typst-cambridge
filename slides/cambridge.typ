@@ -83,7 +83,9 @@
     block(
       width: 100%, height: 10%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: dark-blue, clip: true,
-      [#align(horizon, [#box(image(height: 1em, "dark-logo.svg")) #h(1fr) #text(fill: white, footer)])]
+      [#box(width: 5em, height:100%, stroke: stroke, clip: true, [#align(horizon, image(width: 5em, "dark-logo.svg"))])
+      #h(1fr)
+      #box(width: 80%, height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
     )
   }
 
