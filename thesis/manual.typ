@@ -1,9 +1,5 @@
 #import "cambridge.typ": *
 
-#let abstract = [
-#lorem(100)
-]
-
 #show: thesis.with(
     author: "Andrew Jeffery",
     short-author: "A. Jeffery",
@@ -13,7 +9,8 @@
     subtitle: "",
     short-title: "Cambridge thesis",
     date: [27#super("th") June 2023],
-    abstract: abstract,
+    abstract: lorem(100),
+    acknowledgements: lorem(50),
 )
 
 = Introduction
