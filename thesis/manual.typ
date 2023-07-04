@@ -1,6 +1,6 @@
 #import "cambridge.typ": *
 
-#show: thesis.with(
+#show: doc => thesis(
     author: "Andrew Jeffery",
     short-author: "A. Jeffery",
     college: "Trinity",
@@ -11,6 +11,7 @@
     date: [27#super("th") June 2023],
     abstract: lorem(100),
     acknowledgements: lorem(50),
+    doc,
 )
 
 = Introduction

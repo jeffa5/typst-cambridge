@@ -1,7 +1,7 @@
 #import "typst-slides/slides.typ": *
 #import "cambridge.typ": *
 
-#show: slides.with(
+#show: doc => slides(
     authors: "Andrew Jeffery",
     short-authors: "A. Jeffery",
     title: [Cambridge `typst-slides` template],
@@ -9,6 +9,7 @@
     short-title: "Cambridge template",
     date: [27#super("th") June 2023],
     theme: cambridge-theme(),
+    doc,
 )
 
 #slide(theme-variant: "title slide")
