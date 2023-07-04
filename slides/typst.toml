@@ -1,0 +1,8 @@
+[package]
+name = "cambridge-slides"
+version = "0.1.0"
+entrypoint = "cambridge.typ"
+authors = ["Andrew Jeffery <dev@jeffas.io>"]
+license = "MIT"
+description = "Slides theme for the University of Cambridge"
+repository = "https://github.com/jeffa5/typst-cambridge"
