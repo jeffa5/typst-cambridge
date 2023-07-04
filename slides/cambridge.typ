@@ -1,5 +1,6 @@
 // This theme is inspired by the Cambridge University presentation templates
 
+#import "typst-slides/slides.typ": *
 
 #let cambridge-theme(slides: "typst-slides/slides.typ", debug: false, numbering: "1 / 1", slide-count: true, footer: none) = data => {
 
