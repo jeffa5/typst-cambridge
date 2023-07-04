@@ -62,6 +62,7 @@ limit of 60 000 words.
 #heading(level: 1, "Index")
 ]
 
+// Waiting for https://github.com/typst/typst/pull/1427
 #let clearpage = [
 #pagebreak()
 #pagebreak()
