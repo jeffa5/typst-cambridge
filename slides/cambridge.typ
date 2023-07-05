@@ -43,7 +43,7 @@
   let footer = if footer != none {
     make-footer(footer(section: section.display(), slide-number: slide-number))
   } else {
-    make-footer[#data.short-title #h(2em) #data.short-authors #h(2em) #slide-number #section.display()]
+    make-footer[#section.display() #h(2em) #data.short-authors #h(2em) #slide-number]
   }
 
   let title-slide(slide-info, bodies) = {
@@ -111,9 +111,9 @@
     block(
       width: 100%, height: 12%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: dark-blue, clip: true,
-      [#box(width: 10em, height: 100%, stroke: stroke, clip: true, [#align(horizon, image(width: 10em, "dark-logo.svg"))])
+      [#box(height: 100%, stroke: stroke, clip: true, [#align(horizon, image(width: 10em, "dark-logo.svg"))])
       #h(1fr)
-      #box(width: 70%, height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
+      #box(height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
     )
   }
 
