@@ -15,7 +15,6 @@
     devShells.${system}.default = pkgs.mkShell {
       packages = with pkgs; [
         typst
-        liberation_ttf
       ];
       TYPST_FONT_PATHS = "${pkgs.liberation_ttf}";
     };
