@@ -2,10 +2,12 @@
 
 #import "typst-slides/slides.typ": *
 
-#let cambridge-theme(slides: "typst-slides/slides.typ", debug: false, numbering: "1 / 1", slide-count: true, footer: none) = data => {
-
-  import slides: *
-
+#let cambridge-theme(
+  debug: false,
+  numbering: "1 / 1",
+  slide-count: true,
+  footer: none,
+) = data => {
   let blue = rgb("#0072CF")
   let light-blue = rgb("#68ACE5")
   let dark-blue = rgb("#003E74")
