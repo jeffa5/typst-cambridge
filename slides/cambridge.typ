@@ -111,7 +111,7 @@
       stroke: stroke, spacing: 0em, fill: dark-blue, clip: true,
       [#box(width: 10em, height: 100%, stroke: stroke, clip: true, [#align(horizon, image(width: 10em, "dark-logo.svg"))])
       #h(1fr)
-      #box(width: 80%, height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
+      #box(width: 70%, height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
     )
   }
 
