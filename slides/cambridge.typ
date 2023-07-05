@@ -49,29 +49,30 @@
         panic("title slide of Cambridge theme does not support any bodies")
     }
 
-    set text(fill: white)
+    set text(fill: white, size: 20pt, font: "liberation sans")
     let stroke = stroke(slide-info)
 
     block(
       width: 100%, height: 28%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: white,
-      align(horizon, image(width: 10em, "light-logo.svg"))
+      align(horizon, image(width: 13em, "light-logo.svg"))
     )
     block(
-      width: 100%, height: 49%, outset: 0em, inset: (x: 2em), breakable: false,
+      width: 100%, height: 49%, outset: 0em, inset: 2em, breakable: false,
       stroke: stroke, spacing: 0em, fill: blue,
       [
-      #align(left + horizon, text(size: 1.7em, data.title))
-      #align(left + horizon, text(size: 1em, data.subtitle))
+      #align(left + horizon, text(size: 36pt, data.title))
+      #align(left + horizon, text(size: 18pt, data.subtitle))
       ]
     )
     block(
       width: 100%, height: 9%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: dark-blue,
       [
-      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", "))])
+      #set text(size: 18pt)
+      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, strong(data.authors.join(", ")))])
       #h(1fr)
-      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.date)])
+      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, strong(data.date))])
       ]
     )
     block(
@@ -86,13 +87,13 @@
   }
 
   let displayed-title(slide-info) = if "title" in slide-info {
-    heading(level: 1, slide-info.title)
+    heading(level: 1, text(size: 26pt, slide-info.title))
   } else {
     []
   }
 
   let main(slide-info, bodies) = {
-    set text(fill: blue-text)
+    set text(fill: blue-text, size: 20pt, font: "liberation sans")
     let stroke = stroke(slide-info)
 
     block(
@@ -108,7 +109,7 @@
     block(
       width: 100%, height: 12%, outset: 0em, inset: (x: 2em), breakable: false,
       stroke: stroke, spacing: 0em, fill: dark-blue, clip: true,
-      [#box(width: 5em, height: 100%, stroke: stroke, clip: true, [#align(horizon, image(width: 5em, "dark-logo.svg"))])
+      [#box(width: 10em, height: 100%, stroke: stroke, clip: true, [#align(horizon, image(width: 10em, "dark-logo.svg"))])
       #h(1fr)
       #box(width: 80%, height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
     )
