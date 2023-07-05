@@ -20,6 +20,8 @@
   slide-count: true,
   /// Custom footer.
   footer: none,
+  /// Custom font specification.
+  font: "liberation sans"
 ) = data => {
   let blue = rgb("#0072CF")
   let light-blue = rgb("#68ACE5")
@@ -49,7 +51,7 @@
         panic("title slide of Cambridge theme does not support any bodies")
     }
 
-    set text(fill: white, size: 20pt, font: "liberation sans")
+    set text(fill: white, size: 20pt, font: font)
     let stroke = stroke(slide-info)
 
     block(
@@ -93,7 +95,7 @@
   }
 
   let main(slide-info, bodies) = {
-    set text(fill: blue-text, size: 20pt, font: "liberation sans")
+    set text(fill: blue-text, size: 20pt, font: font)
     let stroke = stroke(slide-info)
 
     block(

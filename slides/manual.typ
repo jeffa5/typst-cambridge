@@ -15,19 +15,13 @@
 #slide(theme-variant: "title slide")
 
 #slide(title: "Installation")[
-Install this repo as a git submodule for your document (or copy the folder):
-```sh
-git submodule add https://github.com/jeffa5/typst-cambridge
-# ensure the template has access to typst-slides,
-# skip if you want to pass your own (see optional arguments)
-git submodule update --init --recursive
-```
+You should have the `liberation` font installed, or set the `TYPST_FONT_PATHS` environment variable to its location.
 ]
 
 #slide(title: "Getting started")[
     ```typst
-#import "typst-slides/slides.typ": *
-#import "typst-cambridge/slides/cambridge.typ": *
+// brings in the typst-slides bits too
+#import "@preview/cambridge-slides:0.1.0": *
 
 #show: slides.with(
     // usual typst-slides pieces
@@ -43,6 +37,7 @@ git submodule update --init --recursive
     - `numbering`: numbering format for slide numbers, default `"1 / 1"`
     - `slide-count`: include the total number of slides, default `true`
     - `footer`: function to produce a custom footer, default `none`
+    - `font`: font specification passed to `text`, default `"liberation sans"`
 ]
 
 #slide(title: "Optional arguments example")[
@@ -51,7 +46,8 @@ git submodule update --init --recursive
 #cambridge-theme(debug: true,
                 numbering: "i / I",
                 slide-count: false,
-                footer: footer)
+                footer: footer,
+                font: "liberation serif")
     ```
 ]
 
