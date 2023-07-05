@@ -39,7 +39,7 @@
   }
 
   let slide-number = logical-slide.display(numbering, both: slide-count)
-  let make-footer(content) = text(size: 0.5em, content)
+  let make-footer(content) = text(size: 16pt, content)
   let footer = if footer != none {
     make-footer(footer(section: section.display(), slide-number: slide-number))
   } else {
