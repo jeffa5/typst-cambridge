@@ -1,11 +1,24 @@
-// This theme is inspired by the Cambridge University presentation templates
+/// This theme is inspired by the Cambridge University presentation templates
 
 #import "typst-slides/slides.typ": *
 
+/// The typst-slides theme for the University of Cambridge.
+///
+/// Slide info is of the form:
+/// ```typst
+/// (
+///   debug: bool,
+///   title: content|string,
+/// )
+/// ```
 #let cambridge-theme(
+  /// Debug placement of the core blocks.
   debug: false,
+  /// Slide numbering.
   numbering: "1 / 1",
+  /// Show the total slide count too.
   slide-count: true,
+  /// Custom footer.
   footer: none,
 ) = data => {
   let blue = rgb("#0072CF")
