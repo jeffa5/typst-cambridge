@@ -72,7 +72,7 @@
       stroke: stroke, spacing: 0em, fill: dark-blue,
       [
       #set text(size: 18pt)
-      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", "))])
+      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", ", last: ", and "))])
       #h(1fr)
       #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.date)])
       ]
