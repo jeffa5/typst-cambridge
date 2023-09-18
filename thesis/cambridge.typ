@@ -92,6 +92,7 @@ limit of 60 000 words.
         )
     )
 
+    show heading: set block(above: 2em, below: 2em)
     show heading.where(level: 1): it => {
         pagebreak(weak: true)
         set text(1.6em)
