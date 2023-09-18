@@ -83,6 +83,13 @@ limit of 60 000 words.
 ) = {
     set page(
         paper: "a4",
+        // One Cambridge thesis-binding company, J.S. Wilson & Son, recommend on their web page to leave 30 mm margin on the spine and 20 mm on the other three sides of the A4 pages sent to them. About a centimetre of the left margin is lost when the binder stitches the pages together.
+        margin: (
+            inside: 30mm,
+            outside: 20mm,
+            top: 20mm,
+            bottom: 20mm,
+        )
     )
 
     show heading.where(level: 1): it => {
