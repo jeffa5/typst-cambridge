@@ -112,7 +112,7 @@ limit of 60 000 words.
     acknowledgements-page(acknowledgements)
     clearpage
 
-    outline()
+    outline(indent: auto)
     clearpage
 
     glossary()
