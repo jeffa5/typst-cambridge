@@ -70,7 +70,7 @@ limit of 60 000 words.
 #show heading.where(level: 1): it => {
     set text(1.6em, weight: "regular")
     v(2em)
-    smallcaps(it.body)
+    it.body
     v(-0.5em)
     line(length: 100%)
     v(2em)
@@ -114,7 +114,7 @@ limit of 60 000 words.
         pagebreak(weak: true)
         set text(1.6em, weight: "regular")
         v(2em)
-        smallcaps(it.body)
+        it.body
         v(-0.5em)
         line(length: 100%)
         v(2em)
@@ -145,7 +145,7 @@ limit of 60 000 words.
                 if current-chapter != none {
                     if calc.rem(current-page, 2) == 0 {
                         let current-section-text = if current-section == none {[]} else {
-                            emph[#counter(heading).display(). #smallcaps(current-section.body)]
+                            emph[#counter(heading).display(). #current-section.body]
                         }
                         [
                             #h(1fr)
@@ -155,7 +155,7 @@ limit of 60 000 words.
                         ]
                     } else {
                         [
-                            #emph[#smallcaps[Chapter] #counter(heading.where(level: 1)).display(). #smallcaps(current-chapter.body)]
+                            #emph[Chapter #counter(heading.where(level: 1)).display(). #current-chapter.body]
                             #h(1fr)
                             #v(-0.5em)
                             #line(length: 100%)
@@ -171,11 +171,11 @@ limit of 60 000 words.
         set text(1em, weight: "regular")
         v(2em)
         h(1fr)
-        smallcaps[Chapter #counter(heading).display()]
+        [Chapter #counter(heading).display()]
         set text(1.6em, weight: "regular")
         line(length: 100%)
         block[
-            #smallcaps(it.body)
+            #it.body
         ]
         line(length: 100%)
         v(2em)
