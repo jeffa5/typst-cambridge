@@ -32,7 +32,7 @@
 
 #chapter[Work piece 2]
 
-#lorem(100)
+#lorem(300)
 
 == Some context
 

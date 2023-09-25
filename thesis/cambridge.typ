@@ -143,9 +143,12 @@ limit of 60 000 words.
                 let current-section = get-current-heading(loc, level: 2)
                 if current-chapter != none {
                     if calc.rem(current-page, 2) == 0 {
+                        let current-section-text = if current-section == none {[]} else {
+                            emph[#counter(heading).display(). #smallcaps(current-section.body)]
+                        }
                         [
                             #h(1fr)
-                            #emph[#counter(heading).display(). #smallcaps(current-section.body)]
+                            #current-section-text
                             #v(-0.5em)
                             #line(length: 100%)
                         ]
