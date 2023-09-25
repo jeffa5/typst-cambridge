@@ -14,7 +14,7 @@
     doc,
 )
 
-= Introduction
+#chapter[Introduction]
 
 #lorem(100)
 
@@ -22,7 +22,15 @@
 
 #lorem(1000)
 
-= Work piece 1
+#chapter[Work piece 1]
+
+#lorem(100)
+
+== Some context
+
+#lorem(1000)
+
+#chapter[Work piece 2]
 
 #lorem(100)
 

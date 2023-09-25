@@ -1,3 +1,18 @@
+// Given a location at the start of a page, obtain the current
+// heading. Current means:
+// - The first heading on this page if present.
+// - Else, the previous heading if one exists.
+// - Else, return none.
+#let get-current-heading(loc, level: 1) = {
+  let heading-selector = heading.where(level: level, outlined: true)
+  let el = query(heading-selector.after(loc), loc).at(0, default: none)
+  if el != none and el.location().page() == loc.page() {
+    return none
+  } else {
+    return query(heading-selector.before(loc), loc).at(-1, default: none)
+  }
+}
+
 #let front-page(title, author, college, college-shield) = {
     let lastline = "This dissertation is submitted for the degree of Doctor of Philosophy"
     [
@@ -53,12 +68,13 @@ limit of 60 000 words.
 #let index() = [
 #set heading(numbering: none)
 #show heading.where(level: 1): it => {
-    pagebreak(weak: true)
+    //pagebreak(weak: true)
     set text(1.6em)
     v(3em)
     it.body
     v(2em)
 }
+#pagebreak(weak: true)
 #heading(level: 1, "Index")
 ]
 
@@ -118,11 +134,37 @@ limit of 60 000 words.
     glossary()
     clearpage
 
-    set page(numbering: "1")
+    set page(numbering: "1", header: {
+        locate(loc => {
+                let current-page = counter(page).at(loc).first()
+                let current-chapter = get-current-heading(loc)
+                let current-section = get-current-heading(loc, level: 2)
+                if current-chapter != none {
+                    if calc.rem(current-page, 2) == 0 {
+                        [
+                            #current-page
+                            #h(1fr)
+                            #emph[#counter(heading).display(). #smallcaps(current-section.body)]
+                            #v(-0.5em)
+                            #line(length: 100%)
+                        ]
+                    } else {
+                        [
+                            #emph[#smallcaps[Chapter] #counter(heading.where(level: 1)).display(). #smallcaps(current-chapter.body)]
+                            #h(1fr)
+                            #current-page
+                            #v(-0.5em)
+                            #line(length: 100%)
+                        ]
+                    }
+                } else {[]}
+
+            })
+        })
     set heading(numbering: "1.1")
 
     show heading.where(level: 1): it => {
-        pagebreak(weak: true)
+        //pagebreak(weak: true)
         set text(1.6em)
         v(3em)
         block[
@@ -139,5 +181,6 @@ limit of 60 000 words.
 }
 
 #let chapter(content) = {
+    pagebreak(weak: true)
     heading(level: 1, content)
 }
