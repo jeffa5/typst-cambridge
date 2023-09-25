@@ -68,10 +68,11 @@ limit of 60 000 words.
 #let index() = [
 #set heading(numbering: none)
 #show heading.where(level: 1): it => {
-    //pagebreak(weak: true)
-    set text(1.6em)
-    v(3em)
-    it.body
+    set text(1.6em, weight: "regular")
+    v(2em)
+    smallcaps(it.body)
+    v(-0.5em)
+    line(length: 100%)
     v(2em)
 }
 #pagebreak(weak: true)
