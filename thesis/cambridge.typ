@@ -120,7 +120,7 @@ limit of 60 000 words.
         v(2em)
     }
 
-    set par(leading: 1.5em)
+    set par(leading: 1.5em, first-line-indent: 1em)
 
     front-page(title, author, college, college-shield)
     clearpage
