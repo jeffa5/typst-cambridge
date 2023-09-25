@@ -144,7 +144,6 @@ limit of 60 000 words.
                 if current-chapter != none {
                     if calc.rem(current-page, 2) == 0 {
                         [
-                            #current-page
                             #h(1fr)
                             #emph[#counter(heading).display(). #smallcaps(current-section.body)]
                             #v(-0.5em)
@@ -154,7 +153,6 @@ limit of 60 000 words.
                         [
                             #emph[#smallcaps[Chapter] #counter(heading.where(level: 1)).display(). #smallcaps(current-chapter.body)]
                             #h(1fr)
-                            #current-page
                             #v(-0.5em)
                             #line(length: 100%)
                         ]
