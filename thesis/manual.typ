@@ -11,6 +11,7 @@
     date: [27#super("th") June 2023],
     abstract: lorem(100),
     acknowledgements: lorem(50),
+    compact: false,
     doc,
 )
 

@@ -80,10 +80,12 @@ limit of 60 000 words.
 ]
 
 // Waiting for https://github.com/typst/typst/pull/1427
-#let clearpage = [
-#pagebreak()
-#pagebreak()
-]
+#let clearpage(compact) = {
+    if not compact {
+        pagebreak()
+        pagebreak()
+    }
+}
 
 #let thesis(
     title: none,
@@ -96,8 +98,11 @@ limit of 60 000 words.
     date: none,
     abstract: none,
     acknowledgements: none,
+    compact: false,
     body,
 ) = {
+    let leading = if compact { 1em } else { 1.5em }
+
     set page(
         paper: "a4",
         // One Cambridge thesis-binding company, J.S. Wilson & Son, recommend on their web page to leave 30 mm margin on the spine and 20 mm on the other three sides of the A4 pages sent to them. About a centimetre of the left margin is lost when the binder stitches the pages together.
@@ -120,22 +125,22 @@ limit of 60 000 words.
         v(2em)
     }
 
-    set par(leading: 1.5em, first-line-indent: 1em)
+    set par(leading: leading, first-line-indent: 1em)
 
     front-page(title, author, college, college-shield)
-    clearpage
+    clearpage(compact)
     declaration(author, date)
-    clearpage
+    clearpage(compact)
     abstract-page(title, author, abstract)
-    clearpage
+    clearpage(compact)
     acknowledgements-page(acknowledgements)
-    clearpage
+    clearpage(compact)
 
     outline(indent: auto)
-    clearpage
+    clearpage(compact)
 
     glossary()
-    clearpage
+    clearpage(compact)
 
     set page(numbering: "1", header: {
         locate(loc => {
