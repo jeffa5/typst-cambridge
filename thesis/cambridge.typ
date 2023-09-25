@@ -26,7 +26,7 @@
 }
 
 #let declaration(name, date) = [
-#heading(level: 1, outlined: false, "Declaration")
+    #heading(level: 1, outlined: false, "Declaration")
 #v(2em)
 
 This dissertation is the result of my own work and includes nothing which is the outcome
@@ -111,9 +111,11 @@ limit of 60 000 words.
     show heading: set block(above: 2em, below: 2em)
     show heading.where(level: 1): it => {
         pagebreak(weak: true)
-        set text(1.6em)
+        set text(1.6em, weight: "regular")
         v(2em)
-        it.body
+        smallcaps(it.body)
+        v(-0.5em)
+        line(length: 100%)
         v(2em)
     }
 
@@ -163,15 +165,17 @@ limit of 60 000 words.
         })
     set heading(numbering: "1.1")
 
-    show heading.where(level: 1): it => {
-        //pagebreak(weak: true)
-        set text(1.6em)
-        v(3em)
+    show heading.where(level: 1) : it => {
+        set text(1em, weight: "regular")
+        v(2em)
+        h(1fr)
+        smallcaps[Chapter #counter(heading).display()]
+        set text(1.6em, weight: "regular")
+        line(length: 100%)
         block[
-            Chapter #counter(heading).display()
-
-            #it.body
+            #smallcaps(it.body)
         ]
+        line(length: 100%)
         v(2em)
     }
 
