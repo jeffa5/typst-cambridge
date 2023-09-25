@@ -185,6 +185,7 @@ limit of 60 000 words.
         line(length: 100%)
         v(2em)
     }
+    show figure.caption: strong
 
     body
 
