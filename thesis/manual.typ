@@ -15,26 +15,8 @@
     doc,
 )
 
-#chapter[Introduction]
+#include "manual-1.typ"
 
-#lorem(100)
+#include "manual-2.typ"
 
-== A subsection
-
-#lorem(1000)
-
-#chapter[Work piece 1]
-
-#lorem(100)
-
-== Some context
-
-#lorem(1000)
-
-#chapter[Work piece 2]
-
-#lorem(300)
-
-== Some context
-
-#lorem(1000)
+#include "manual-3.typ"

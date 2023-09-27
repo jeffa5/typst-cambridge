@@ -79,11 +79,9 @@ limit of 60 000 words.
 #heading(level: 1, "Index")
 ]
 
-// Waiting for https://github.com/typst/typst/pull/1427
 #let clearpage(compact) = {
     if not compact {
-        pagebreak()
-        pagebreak()
+        pagebreak(to: "odd")
     }
 }
 
@@ -189,10 +187,86 @@ limit of 60 000 words.
 
     body
 
+    clearpage(compact)
     index()
 }
 
-#let chapter(content) = {
-    pagebreak(weak: true)
-    heading(level: 1, content)
+// For rendering chapters separately.
+#let chapter(
+    compact: false,
+    body,
+) = {
+    clearpage(compact)
+    let leading = if compact { 1em } else { 1.5em }
+
+    set page(
+        paper: "a4",
+        // One Cambridge thesis-binding company, J.S. Wilson & Son, recommend on their web page to leave 30 mm margin on the spine and 20 mm on the other three sides of the A4 pages sent to them. About a centimetre of the left margin is lost when the binder stitches the pages together.
+        margin: (
+            inside: 30mm,
+            outside: 20mm,
+            top: 20mm,
+            bottom: 20mm,
+        )
+    )
+
+    show heading: set block(above: 2em, below: 2em)
+    show heading.where(level: 1): it => {
+        pagebreak(weak: true)
+        set text(1.6em, weight: "regular")
+        v(2em)
+        it.body
+        v(-0.5em)
+        line(length: 100%)
+        v(2em)
+    }
+
+    set par(leading: leading, first-line-indent: leading)
+
+    set page(numbering: "1", header: {
+        locate(loc => {
+                let current-page = counter(page).at(loc).first()
+                let current-chapter = get-current-heading(loc)
+                let current-section = get-current-heading(loc, level: 2)
+                if current-chapter != none {
+                    if calc.rem(current-page, 2) == 0 {
+                        let current-section-text = if current-section == none {[]} else {
+                            emph[#counter(heading).display(). #current-section.body]
+                        }
+                        [
+                            #h(1fr)
+                            #current-section-text
+                            #v(-0.5em)
+                            #line(length: 100%)
+                        ]
+                    } else {
+                        [
+                            #emph[Chapter #counter(heading.where(level: 1)).display(). #current-chapter.body]
+                            #h(1fr)
+                            #v(-0.5em)
+                            #line(length: 100%)
+                        ]
+                    }
+                } else {[]}
+
+            })
+        })
+    set heading(numbering: "1.1")
+
+    show heading.where(level: 1) : it => {
+        set text(1em, weight: "regular")
+        v(2em)
+        h(1fr)
+        [Chapter #counter(heading).display()]
+        set text(1.6em, weight: "regular")
+        line(length: 100%)
+        block[
+            #it.body
+        ]
+        line(length: 100%)
+        v(2em)
+    }
+    show figure.caption: strong
+
+    body
 }
