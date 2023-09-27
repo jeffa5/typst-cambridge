@@ -196,7 +196,6 @@ limit of 60 000 words.
     compact: false,
     body,
 ) = {
-    clearpage(compact)
     let leading = if compact { 1em } else { 1.5em }
 
     set page(
