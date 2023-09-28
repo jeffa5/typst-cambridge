@@ -13,6 +13,11 @@
   }
 }
 
+#let figure_caption(it) = {
+    strong[#it.supplement #it.counter.display(it.numbering)#it.separator]
+    it.body
+}
+
 #let front-page(title, author, college, college-shield) = {
     let lastline = "This dissertation is submitted for the degree of Doctor of Philosophy"
     [
@@ -183,7 +188,7 @@ limit of 60 000 words.
         line(length: 100%)
         v(2em)
     }
-    show figure.caption: strong
+    show figure.caption: figure_caption
 
     body
 
@@ -265,7 +270,7 @@ limit of 60 000 words.
         line(length: 100%)
         v(2em)
     }
-    show figure.caption: strong
+    show figure.caption: figure_caption
 
     body
 }
