@@ -188,6 +188,7 @@ limit of 60 000 words.
         line(length: 100%)
         v(2em)
     }
+    show figure.where(kind: table): set figure.caption(position: top)
     show figure.caption: figure_caption
 
     body
@@ -270,6 +271,7 @@ limit of 60 000 words.
         line(length: 100%)
         v(2em)
     }
+    show figure.where(kind: table): set figure.caption(position: top)
     show figure.caption: figure_caption
 
     body
