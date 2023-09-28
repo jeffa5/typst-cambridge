@@ -128,7 +128,7 @@ limit of 60 000 words.
         v(2em)
     }
 
-    set par(leading: leading, first-line-indent: leading)
+    set par(leading: leading, first-line-indent: leading, justify: true)
 
     front-page(title, author, college, college-shield)
     clearpage(compact)
@@ -226,7 +226,7 @@ limit of 60 000 words.
         v(2em)
     }
 
-    set par(leading: leading, first-line-indent: leading)
+    set par(leading: leading, first-line-indent: leading, justify: true)
 
     set page(numbering: "1", header: {
         locate(loc => {
