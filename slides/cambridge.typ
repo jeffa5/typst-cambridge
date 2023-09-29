@@ -21,7 +21,7 @@
   /// Custom footer.
   footer: none,
   /// Custom font specification.
-  font: "liberation sans"
+  font: "liberation sans",
 ) = data => {
   let blue = rgb("#0072CF")
   let light-blue = rgb("#68ACE5")
@@ -48,43 +48,72 @@
 
   let title-slide(slide-info, bodies) = {
     if bodies.len() != 0 {
-        panic("title slide of Cambridge theme does not support any bodies")
+      panic("title slide of Cambridge theme does not support any bodies")
     }
 
     set text(fill: white, size: 20pt, font: font)
     let stroke = stroke(slide-info)
 
     block(
-      width: 100%, height: 28%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em, fill: white,
-      align(horizon, image(width: 13em, "light-logo.svg"))
+      width: 100%,
+      height: 28%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: white,
+      align(horizon, image(width: 13em, "light-logo.svg")),
     )
     block(
-      width: 100%, height: 49%, outset: 0em, inset: 2em, breakable: false,
-      stroke: stroke, spacing: 0em, fill: blue,
+      width: 100%,
+      height: 49%,
+      outset: 0em,
+      inset: 2em,
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: blue,
       [
-      #align(left + horizon, text(size: 36pt, data.title))
-      #align(left + horizon, text(size: 18pt, data.subtitle))
-      ]
+        #align(left + horizon, text(size: 36pt, data.title))
+        #align(left + horizon, text(size: 18pt, data.subtitle))
+      ],
     )
     block(
-      width: 100%, height: 9%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em, fill: dark-blue,
+      width: 100%,
+      height: 9%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: dark-blue,
       [
-      #set text(size: 18pt)
-      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", ", last: ", and "))])
-      #h(1fr)
-      #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.date)])
-      ]
+        #set text(size: 18pt)
+        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", ", last: ", and "))])
+        #h(1fr)
+        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.date)])
+      ],
     )
     block(
-      width: 100%, height: 5%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em, fill: light-blue,
+      width: 100%,
+      height: 5%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: light-blue,
     )
     block(
-      width: 100%, height: 9%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em,
-      align(right + horizon, text(fill: blue-text, make-footer(slide-number)))
+      width: 100%,
+      height: 9%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      align(right + horizon, text(fill: blue-text, make-footer(slide-number))),
     )
   }
 
@@ -99,21 +128,42 @@
     let stroke = stroke(slide-info)
 
     block(
-      width: 100%, height: 15%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em, fill: white, clip: true,
-      align(left + horizon, displayed-title(slide-info))
+      width: 100%,
+      height: 15%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: white,
+      clip: true,
+      align(left + horizon, displayed-title(slide-info)),
     )
     block(
-      width: 100%, height: 73%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em, fill: white, clip: true,
-      align(left + horizon, [ #for body in bodies { body } ])
+      width: 100%,
+      height: 73%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: white,
+      clip: true,
+      align(left + horizon, [ #for body in bodies { body } ]),
     )
     block(
-      width: 100%, height: 12%, outset: 0em, inset: (x: 2em), breakable: false,
-      stroke: stroke, spacing: 0em, fill: dark-blue, clip: true,
+      width: 100%,
+      height: 12%,
+      outset: 0em,
+      inset: (x: 2em),
+      breakable: false,
+      stroke: stroke,
+      spacing: 0em,
+      fill: dark-blue,
+      clip: true,
       [#box(height: 100%, stroke: stroke, clip: true, [#align(horizon, image(width: 10em, "dark-logo.svg"))])
-      #h(1fr)
-      #box(height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))]
+        #h(1fr)
+        #box(height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))],
     )
   }
 
