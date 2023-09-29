@@ -139,7 +139,7 @@
   acknowledgements-page(acknowledgements)
   clearpage(compact)
 
-  outline(indent: auto)
+  outline(indent: auto, depth: 3)
   clearpage(compact)
 
   glossary()
