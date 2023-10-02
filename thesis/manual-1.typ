@@ -7,8 +7,10 @@
 #lorem(100)
 
 == A subsection
-
-#lorem(1000)
+=== A subsection
+==== A subsection
+===== A subsection
+====== A subsection
 
 #figure(
   caption: [#lorem(10)],

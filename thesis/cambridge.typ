@@ -188,6 +188,18 @@
     line(length: 100%)
     v(2em)
   }
+  show heading.where(level: 2): it => {
+    set text(1.2em)
+    it
+  }
+  show heading.where(level: 3): it => {
+    set text(1.1em)
+    it
+  }
+  show heading.where(level: 4): it => {
+    set text(1em)
+    it
+  }
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.caption: figure_caption
 
@@ -270,6 +282,18 @@
     ]
     line(length: 100%)
     v(2em)
+  }
+  show heading.where(level: 2): it => {
+    set text(1.2em)
+    it
+  }
+  show heading.where(level: 3): it => {
+    set text(1.1em)
+    it
+  }
+  show heading.where(level: 4): it => {
+    set text(1em)
+    it
   }
   show figure.where(kind: table): set figure.caption(position: top)
   show figure.caption: figure_caption
