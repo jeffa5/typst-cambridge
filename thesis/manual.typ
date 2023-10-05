@@ -5,7 +5,7 @@
   short-author: "A. Jeffery",
   college: "Trinity",
   college-shield: "CollegeShields/Trinity.svg",
-  title: [Cambridge PhD thesis template],
+  title: [Cambridge PhD thesis template with some extra long words],
   subtitle: "",
   short-title: "Cambridge thesis",
   date: [27#super("th") June 2023],
