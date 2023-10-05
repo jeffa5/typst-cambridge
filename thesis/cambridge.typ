@@ -140,6 +140,10 @@
   acknowledgements-page(acknowledgements)
   clearpage(compact)
 
+  show outline.entry.where(level: 1): it => {
+    strong(it)
+  }
+
   outline(indent: auto, depth: 3)
   clearpage(compact)
 
