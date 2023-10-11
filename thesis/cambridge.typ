@@ -180,7 +180,7 @@
     })
   set heading(numbering: "1.1")
 
-  show heading.where(level: 1) : it => {
+  show heading.where(level: 1, numbering: "1") : it => {
     set text(1em, weight: "regular")
     v(2em)
     h(1fr)
