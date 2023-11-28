@@ -91,6 +91,25 @@
   }
 }
 
+#let listoffigures(selector) = {
+  outline(title: [List of figures], target: figure.where(kind: selector))
+}
+
+#let listoftables(selector) = {
+  outline(title: [List of tables], target: figure.where(kind: selector))
+}
+
+#let listoflistings(selector) = {
+  outline(title: [List of listings], target: figure.where(kind: selector))
+}
+
+#let tableofcontents() = {
+  show outline.entry.where(level: 1): it => {
+    strong(it)
+  }
+  outline(indent: auto, depth: 3)
+}
+
 #let thesis(
   title: none,
   author: none,
@@ -103,6 +122,9 @@
   abstract: none,
   acknowledgements: none,
   compact: false,
+  figure-selector: image,
+  table-selector: table,
+  listing-selector: raw,
   body,
 ) = {
   let leading = if compact { 1em } else { 1.5em }
@@ -140,12 +162,23 @@
   acknowledgements-page(acknowledgements)
   clearpage(compact)
 
-  show outline.entry.where(level: 1): it => {
-    strong(it)
+  tableofcontents()
+  clearpage(compact)
+
+  if figure-selector != none {
+    listoffigures(figure-selector)
+    clearpage(compact)
   }
 
-  outline(indent: auto, depth: 3)
-  clearpage(compact)
+  if table-selector != none {
+    listoftables(table-selector)
+    clearpage(compact)
+  }
+
+  if listing-selector != none {
+    listoflistings(listing-selector)
+    clearpage(compact)
+  }
 
   glossary()
   clearpage(compact)
