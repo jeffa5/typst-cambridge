@@ -51,12 +51,8 @@
   #align(right, [#name \ #date])
 ]
 
-#let summary-page(title, name, content) = [
+#let summary-page(content) = [
   #heading(level: 1, outlined: false, "Summary")
-
-  #strong(title)
-
-  #emph(name)
 
   #content
 ]
@@ -157,7 +153,7 @@
   clearpage(compact)
   declaration(author, date)
   clearpage(compact)
-  summary-page(title, author, summary)
+  summary-page(summary)
   clearpage(compact)
   acknowledgements-page(acknowledgements)
   clearpage(compact)
