@@ -51,8 +51,8 @@
   #align(right, [#name \ #date])
 ]
 
-#let abstract-page(title, name, content) = [
-  #heading(level: 1, outlined: false, "Abstract")
+#let summary-page(title, name, content) = [
+  #heading(level: 1, outlined: false, "Summary")
 
   #strong(title)
 
@@ -119,7 +119,7 @@
   short-title: none,
   short-author: none,
   date: none,
-  abstract: none,
+  summary: none,
   acknowledgements: none,
   compact: false,
   figure-selector: image,
@@ -157,7 +157,7 @@
   clearpage(compact)
   declaration(author, date)
   clearpage(compact)
-  abstract-page(title, author, abstract)
+  summary-page(title, author, summary)
   clearpage(compact)
   acknowledgements-page(acknowledgements)
   clearpage(compact)
