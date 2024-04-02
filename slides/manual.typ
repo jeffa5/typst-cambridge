@@ -1,18 +1,12 @@
-#import "typst-slides/slides.typ": *
-#import "cambridge.typ": *
+#import "cambridge.typ": cambridge-theme, title-slide, slide
 
-#show: doc => slides(
+#show: cambridge-theme
+
+#title-slide(
+  title: [Cambridge `polylux` template],
   authors: "Andrew Jeffery",
-  short-authors: "A. Jeffery",
-  title: [Cambridge `typst-slides` template],
-  subtitle: "",
-  short-title: "Cambridge template",
-  date: [27#super("th") June 2023],
-  theme: cambridge-theme(),
-  doc,
+  date: [2#super("nd") April 2024],
 )
-
-#slide(theme-variant: "title slide")
 
 #slide(title: "Installation")[
   You should have the `liberation` font installed, or set the `TYPST_FONT_PATHS` environment variable to its location.
@@ -21,38 +15,16 @@
 #slide(title: "Getting started")[
   ```typst
 // brings in the typst-slides bits too
-#import "@preview/cambridge-slides:0.1.0": *
+#import "@preview/cambridge-slides:0.1.0": cambridge-theme, title-slide, slide
 
-#show: slides.with(
-    // usual typst-slides pieces
-    theme: cambridge-theme(),
+#show: cambridge-theme.with(
+  aspect-ratio: "4-3",
 )
-    ```
+  ```
 ]
 
-#slide(title: "Optional arguments")[
-  You can pass the following arguments to the theme on instantiation `cambridge-theme((...))`:
-  - `slides`: path to `typst-slides`' `slides.typ`, default: `"typst-slides/slides.typ"`
-  - `debug`: enable debug globally, default `false`
-  - `numbering`: numbering format for slide numbers, default `"1 / 1"`
-  - `slide-count`: include the total number of slides, default `true`
-  - `footer`: function to produce a custom footer, default `none`
-  - `font`: font specification passed to `text`, default `"liberation sans"`
-]
-
-#slide(title: "Optional arguments example")[
-  ```typst
-#let footer(section: none, slide-number: none) = [#text(fill: green, [#slide-number span #section])]
-#cambridge-theme(debug: true,
-                numbering: "i / I",
-                slide-count: false,
-                footer: footer,
-                font: "liberation serif")
-    ```
-]
-
-#slide(title: "Slide types", theme-variant: "default")[
-  There are just two slide variants: `title slide` and `default`.
+#slide(title: "Slide types")[
+  There are just two slide variants: `title-slide` and `slide`.
 ]
 
 #slide(title: "Footer")[

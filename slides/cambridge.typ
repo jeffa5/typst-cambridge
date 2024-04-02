@@ -1,60 +1,59 @@
 /// This theme is inspired by the Cambridge University presentation templates
 
-#import "typst-slides/slides.typ": *
+#import "@preview/polylux:0.3.1": *
 
-/// The typst-slides theme for the University of Cambridge.
-///
-/// Slide info is of the form:
-/// ```typst
-/// (
-///   debug: bool,
-///   title: content|string,
-/// )
-/// ```
+/// The polylux theme for the University of Cambridge.
 #let cambridge-theme(
-  /// Debug placement of the core blocks.
-  debug: false,
-  /// Slide numbering.
-  numbering: "1 / 1",
-  /// Show the total slide count too.
-  slide-count: true,
-  /// Custom footer.
-  footer: none,
-  /// Custom font specification.
-  font: "liberation sans",
-) = data => {
-  let blue = rgb("#0072CF")
-  let light-blue = rgb("#68ACE5")
-  let dark-blue = rgb("#003E74")
+  aspect-ratio: "16-9",
+  body,
+) = {
   let background = rgb("#FFFFFF")
-  let blue-text = rgb("#1f4e79")
+  set page(
+    paper: "presentation-" + aspect-ratio,
+    margin: 0pt,
+    fill: background,
+  )
+  body
+}
 
-  let debug-stroke = 1pt + red
-  let stroke(slide-info) = if debug {
-    debug-stroke
-  } else if "debug" in slide-info and slide-info.debug {
+#let blue = rgb("#0072CF")
+#let light-blue = rgb("#68ACE5")
+#let dark-blue = rgb("#003E74")
+#let blue-text = rgb("#1f4e79")
+
+#let debug-stroke = 1pt + red
+#let stroke(debug) = {
+  if debug {
     debug-stroke
   } else {
     none
   }
+}
 
-  let slide-number = logical-slide.display(numbering, both: slide-count)
-  let make-footer(content) = text(size: 16pt, content)
-  let footer = if footer != none {
-    make-footer(footer(section: section.display(), slide-number: slide-number))
+#let make-footer(content) = text(size: 16pt, content)
+
+#let title-slide(
+  title: [],
+  subtitle: [],
+  authors: ([],),
+  date: [],
+  numbering: "1 / 1",
+  slide-count: false,
+  debug: false,
+) = {
+  set text(fill: white, size: 20pt)
+  let stroke = stroke(debug)
+
+  let slide-number = logic.logical-slide.display(numbering, both: slide-count)
+
+  let authors = if type(authors) == list {
+    authors
   } else {
-    make-footer[#section.display() #h(2em) #data.short-authors #h(2em) #slide-number]
+    (authors,)
   }
 
-  let title-slide(slide-info, bodies) = {
-    if bodies.len() != 0 {
-      panic("title slide of Cambridge theme does not support any bodies")
-    }
-
-    set text(fill: white, size: 20pt, font: font)
-    let stroke = stroke(slide-info)
-
-    block(
+  polylux-slide[
+    #block(
       width: 100%,
       height: 28%,
       outset: 0em,
@@ -65,7 +64,7 @@
       fill: white,
       align(horizon, image(width: 13em, "light-logo.svg")),
     )
-    block(
+    #block(
       width: 100%,
       height: 49%,
       outset: 0em,
@@ -75,11 +74,11 @@
       spacing: 0em,
       fill: blue,
       [
-        #align(left + horizon, text(size: 36pt, data.title))
-        #align(left + horizon, text(size: 18pt, data.subtitle))
+        #align(left + horizon, text(size: 36pt, title))
+        #align(left + horizon, text(size: 18pt, subtitle))
       ],
     )
-    block(
+    #block(
       width: 100%,
       height: 9%,
       outset: 0em,
@@ -90,12 +89,12 @@
       fill: dark-blue,
       [
         #set text(size: 18pt)
-        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.authors.join(", ", last: ", and "))])
+        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, authors.join(", ", last: ", and "))])
         #h(1fr)
-        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, data.date)])
+        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, date)])
       ],
     )
-    block(
+    #block(
       width: 100%,
       height: 5%,
       outset: 0em,
@@ -105,7 +104,7 @@
       spacing: 0em,
       fill: light-blue,
     )
-    block(
+    #block(
       width: 100%,
       height: 9%,
       outset: 0em,
@@ -115,19 +114,25 @@
       spacing: 0em,
       align(right + horizon, text(fill: blue-text, make-footer(slide-number))),
     )
-  }
+  ]
+}
 
-  let displayed-title(slide-info) = if "title" in slide-info {
-    heading(level: 1, text(size: 26pt, slide-info.title))
-  } else {
-    []
-  }
+#let slide(
+  title: [],
+  short-authors: [],
+  numbering: "1 / 1",
+  debug: false,
+  slide-count: false,
+  body,
+) = {
+  set text(fill: blue-text, size: 20pt)
+  let stroke = stroke(debug)
+  let displayed-title = heading(level: 1, text(size: 26pt, title))
+  let slide-number = logic.logical-slide.display(numbering, both: slide-count)
+  let footer = make-footer[#short-authors #h(2em) #slide-number]
 
-  let main(slide-info, bodies) = {
-    set text(fill: blue-text, size: 20pt, font: font)
-    let stroke = stroke(slide-info)
-
-    block(
+  polylux-slide[
+    #block(
       width: 100%,
       height: 15%,
       outset: 0em,
@@ -137,9 +142,9 @@
       spacing: 0em,
       fill: white,
       clip: true,
-      align(left + horizon, displayed-title(slide-info)),
+      align(left + horizon, displayed-title),
     )
-    block(
+    #block(
       width: 100%,
       height: 73%,
       outset: 0em,
@@ -149,9 +154,9 @@
       spacing: 0em,
       fill: white,
       clip: true,
-      align(left + horizon, [ #for body in bodies { body } ]),
+      align(left + horizon, body),
     )
-    block(
+    #block(
       width: 100%,
       height: 12%,
       outset: 0em,
@@ -165,10 +170,5 @@
         #h(1fr)
         #box(height: 100%, stroke: stroke, clip: true, align(right + horizon, text(fill: white, footer)))],
     )
-  }
-
-  (
-    "title slide": title-slide,
-    "default": main,
-  )
+  ]
 }
