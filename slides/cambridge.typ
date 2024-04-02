@@ -35,7 +35,7 @@
 #let title-slide(
   title: [],
   subtitle: [],
-  authors: (),
+  authors: [],
   date: [],
   numbering: "1 / 1",
   slide-count: false,
@@ -45,12 +45,6 @@
   let stroke = stroke(debug)
 
   let slide-number = logic.logical-slide.display(numbering, both: slide-count)
-
-  let authors = if type(authors) == list {
-    authors
-  } else {
-    (authors,)
-  }
 
   polylux-slide[
     #block(
@@ -89,7 +83,7 @@
       fill: dark-blue,
       [
         #set text(size: 18pt)
-        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, authors.join(", ", last: ", and "))])
+        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, authors)])
         #h(1fr)
         #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, date)])
       ],
