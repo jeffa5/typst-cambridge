@@ -35,7 +35,7 @@
 #let title-slide(
   title: [],
   subtitle: [],
-  authors: ([],),
+  authors: (),
   date: [],
   numbering: "1 / 1",
   slide-count: false,
