@@ -9,9 +9,7 @@
   body,
 ) = {
   let background = rgb("#FFFFFF")
-  if font {
-    set text(font: font)
-  }
+  set text(font: font)
   set page(
     paper: "presentation-" + aspect-ratio,
     margin: 0pt,
