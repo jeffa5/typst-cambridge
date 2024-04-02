@@ -5,9 +5,13 @@
 /// The polylux theme for the University of Cambridge.
 #let cambridge-theme(
   aspect-ratio: "16-9",
+  font: "Liberation Sans",
   body,
 ) = {
   let background = rgb("#FFFFFF")
+  if font {
+    set text(font: font)
+  }
   set page(
     paper: "presentation-" + aspect-ratio,
     margin: 0pt,
