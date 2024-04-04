@@ -121,6 +121,7 @@
   figure-selector: image,
   table-selector: table,
   listing-selector: raw,
+  use-index: true,
   body,
 ) = {
   let leading = if compact { 1em } else { 1.5em }
@@ -239,8 +240,10 @@
 
   body
 
-  clearpage(compact)
-  index()
+  if use-index {
+    clearpage(compact)
+    index()
+  }
 }
 
 // For rendering chapters separately.
