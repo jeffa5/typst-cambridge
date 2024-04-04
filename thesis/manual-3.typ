@@ -8,4 +8,4 @@
 
 == Some context
 
-#lorem(1000)
+#lorem(800)

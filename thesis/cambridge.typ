@@ -77,7 +77,6 @@
     line(length: 100%)
     v(2em)
   }
-  #pagebreak(weak: true)
   #heading(level: 1, "Index")
 ]
 
@@ -140,7 +139,6 @@
 
   show heading: set block(above: 2em, below: 2em)
   show heading.where(level: 1): it => {
-    pagebreak(weak: true)
     set text(1.6em, weight: "regular")
     v(2em)
     it.body
@@ -269,7 +267,6 @@
 
   show heading: set block(above: 2em, below: 2em)
   show heading.where(level: 1): it => {
-    pagebreak(weak: true)
     set text(1.6em, weight: "regular")
     v(2em)
     it.body

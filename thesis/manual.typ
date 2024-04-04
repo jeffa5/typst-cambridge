@@ -9,7 +9,7 @@
   subtitle: "",
   short-title: "Cambridge thesis",
   date: [27#super("th") June 2023],
-  abstract: lorem(100),
+  summary: lorem(100),
   acknowledgements: lorem(50),
   compact: false,
   doc,
