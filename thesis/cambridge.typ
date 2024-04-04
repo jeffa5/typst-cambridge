@@ -121,6 +121,7 @@
   figure-selector: image,
   table-selector: table,
   listing-selector: raw,
+  use-glossary: true,
   use-index: true,
   body,
 ) = {
@@ -177,8 +178,10 @@
     clearpage(compact)
   }
 
-  glossary()
-  clearpage(compact)
+  if use-glossary {
+    glossary()
+    clearpage(compact)
+  }
 
   set page(numbering: "1", header: {
       locate(loc => {
