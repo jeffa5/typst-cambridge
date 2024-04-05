@@ -18,12 +18,14 @@
   it.body
 }
 
-#let front-page(title, author, college, college-shield) = {
+#let front-page(title, subtitle, author, college, college-shield) = {
   let lastline = "This dissertation is submitted for the degree of Doctor of Philosophy"
   [
     #set par(justify: false)
     #align(center, image(width: 20em, "light-logo.svg"))
     #align(center + horizon, text(2.5em, title)) \
+    #v(4em)
+    #align(center + horizon, text(2em, subtitle)) \
     #v(4em)
     #align(center + horizon, [#text(1.5em, author) \ #image(width: 5em, college-shield) #text(1.3em, college)])
     #align(center + bottom, text(1em, lastline))
@@ -149,7 +151,7 @@
 
   set par(leading: leading, first-line-indent: leading, justify: true)
 
-  front-page(title, author, college, college-shield)
+  front-page(title, subtitle, author, college, college-shield)
   clearpage(compact)
   declaration(author, date)
   clearpage(compact)

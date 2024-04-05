@@ -6,7 +6,7 @@
   college: "Trinity",
   college-shield: "CollegeShields/Trinity.svg",
   title: [Cambridge PhD thesis template with some extra long words],
-  subtitle: "",
+  subtitle: "Date 01/01/1970",
   short-title: "Cambridge thesis",
   date: [27#super("th") June 2023],
   summary: lorem(100),
