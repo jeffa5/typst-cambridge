@@ -39,6 +39,7 @@
   subtitle: [],
   authors: [],
   date: [],
+  venue: [],
   numbering: "1 / 1",
   slide-count: false,
   debug: false,
@@ -87,7 +88,7 @@
         #set text(size: 18pt)
         #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, authors)])
         #h(1fr)
-        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, date)])
+        #box(width: auto, height: 100%, stroke: stroke, clip: true, [#align(horizon, [#date #venue])])
       ],
     )
     #block(
