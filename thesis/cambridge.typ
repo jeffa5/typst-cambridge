@@ -84,7 +84,16 @@
 
 #let clearpage(compact) = {
   if not compact {
-    pagebreak(to: "odd")
+    // pagebreak(to: "odd")
+    // Advances to the next odd page
+    context {
+      let n = here().page()
+      if calc.odd(n) {
+        page(header: [], footer: [])[]
+      } else if calc.even(n) {
+        v(100%, weak: true)
+      }
+    }
   }
 }
 
