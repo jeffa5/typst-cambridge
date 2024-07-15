@@ -8,7 +8,16 @@
 
 == Some context
 
-#lorem(1000)
+#lorem(500)
+#lorem(100)
+=== sub 1
+#lorem(100)
+#lorem(100)
+=== sub 2
+#lorem(100)
+#lorem(100)
+=== sub 3
+#lorem(100)
 
 === more depth
 
