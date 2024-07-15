@@ -191,7 +191,7 @@
           if current-chapter != none {
             if calc.rem(current-page, 2) == 0 {
               let current-section-text = if current-section == none {[]} else {
-                emph[#counter(heading).display(). #current-section.body]
+                emph[#numbering(current-section.numbering, ..counter(heading).at(current-section.location())). #current-section.body]
               }
               [
                 #h(1fr)
@@ -287,7 +287,7 @@
           if current-chapter != none {
             if calc.rem(current-page, 2) == 0 {
               let current-section-text = if current-section == none {[]} else {
-                emph[#counter(heading).display(). #current-section.body]
+                emph[#numbering(current-section.numbering, ..counter(heading).at(current-section.location())). #current-section.body]
               }
               [
                 #h(1fr)
