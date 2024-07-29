@@ -76,7 +76,7 @@
     v(2em)
     it.body
     v(-0.5em)
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     v(2em)
   }
   #heading(level: 1, "Index")
@@ -145,7 +145,7 @@
     v(2em)
     it.body
     v(-0.5em)
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     v(2em)
   }
 
@@ -197,14 +197,14 @@
                 #h(1fr)
                 #current-section-text
                 #v(-0.5em)
-                #line(length: 100%)
+                #line(length: 100%, stroke: 0.5pt)
               ]
             } else {
               [
                 #emph[Chapter #counter(heading.where(level: 1)).display(). #current-chapter.body]
                 #h(1fr)
                 #v(-0.5em)
-                #line(length: 100%)
+                #line(length: 100%, stroke: 0.5pt)
               ]
             }
           } else {[]}
@@ -219,11 +219,11 @@
     h(1fr)
     [Chapter #counter(heading).display()]
     set text(1.6em, weight: "regular")
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     block[
       #it.body
     ]
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     v(2em)
   }
   show heading.where(level: 2): it => {
@@ -273,7 +273,7 @@
     v(2em)
     it.body
     v(-0.5em)
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     v(2em)
   }
 
@@ -293,14 +293,14 @@
                 #h(1fr)
                 #current-section-text
                 #v(-0.5em)
-                #line(length: 100%)
+                #line(length: 100%, stroke: 0.5pt)
               ]
             } else {
               [
                 #emph[Chapter #counter(heading.where(level: 1)).display(). #current-chapter.body]
                 #h(1fr)
                 #v(-0.5em)
-                #line(length: 100%)
+                #line(length: 100%, stroke: 0.5pt)
               ]
             }
           } else {[]}
@@ -315,11 +315,11 @@
     h(1fr)
     [Chapter #counter(heading).display()]
     set text(1.6em, weight: "regular")
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     block[
       #it.body
     ]
-    line(length: 100%)
+    line(length: 100%, stroke: 0.5pt)
     v(2em)
   }
   show heading.where(level: 2): it => {
