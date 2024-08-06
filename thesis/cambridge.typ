@@ -239,7 +239,7 @@
     it
   }
   show figure.where(kind: table): set figure.caption(position: top)
-  show figure.caption: figure_caption
+  // show figure.caption: figure_caption
 
   body
 
@@ -335,7 +335,7 @@
     it
   }
   show figure.where(kind: table): set figure.caption(position: top)
-  show figure.caption: figure_caption
+  // show figure.caption: figure_caption
 
   body
 }
