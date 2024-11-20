@@ -5,11 +5,11 @@
 // - Else, return none.
 #let get-current-heading(loc, level: 1) = {
   let heading-selector = heading.where(level: level, outlined: true)
-  let el = query(heading-selector.after(loc), loc).at(0, default: none)
+  let el = query(heading-selector.after(loc)).at(0, default: none)
   if el != none and el.location().page() == loc.page() {
     return none
   } else {
-    return query(heading-selector.before(loc), loc).at(-1, default: none)
+    return query(heading-selector.before(loc)).at(-1, default: none)
   }
 }
 
@@ -177,10 +177,10 @@
   }
 
   set page(numbering: "1", header: {
-      locate(loc => {
-          let current-page = counter(page).at(loc).first()
-          let current-chapter = get-current-heading(loc)
-          let current-section = get-current-heading(loc, level: 2)
+      context {
+          let current-page = counter(page).get().first()
+          let current-chapter = get-current-heading(here())
+          let current-section = get-current-heading(here(), level: 2)
           if current-chapter != none {
             if calc.rem(current-page, 2) == 0 {
               let current-section-text = if current-section == none {[]} else {
@@ -201,8 +201,7 @@
               ]
             }
           } else {[]}
-
-        })
+        }
     })
   set heading(numbering: "1.1")
 
@@ -273,10 +272,10 @@
   set par(leading: leading, first-line-indent: leading, justify: true)
 
   set page(numbering: "1", header: {
-      locate(loc => {
-          let current-page = counter(page).at(loc).first()
-          let current-chapter = get-current-heading(loc)
-          let current-section = get-current-heading(loc, level: 2)
+      context {
+          let current-page = counter(page).get().first()
+          let current-chapter = get-current-heading(here())
+          let current-section = get-current-heading(here(), level: 2)
           if current-chapter != none {
             if calc.rem(current-page, 2) == 0 {
               let current-section-text = if current-section == none {[]} else {
@@ -297,8 +296,7 @@
               ]
             }
           } else {[]}
-
-        })
+        }
     })
   set heading(numbering: "1.1")
 
