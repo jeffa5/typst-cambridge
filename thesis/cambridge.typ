@@ -38,8 +38,8 @@
   #v(2em)
 
   This thesis is the result of my own work and includes nothing which is the outcome of work done in collaboration except as declared in the preface and specified in the text.
-  It is not substantially the same as any work that has already been submitted, or, is being concurrently submitted, for any degree, diploma or other qualification at the University of Cambridge or any other University or similar institution except as declared in the preface and specified in the text.
-  It does not exceed the prescribed word limit of 60 000 words.
+  It is not substantially the same as any work that has already been submitted, or is being concurrently submitted, for any degree, diploma or other qualification at the University of Cambridge or any other University or similar institution except as declared in the preface and specified in the text.
+  It does not exceed the prescribed word limit for the relevant Degree Committee.
 
   #v(2em)
 
