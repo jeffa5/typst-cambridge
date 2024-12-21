@@ -19,7 +19,7 @@
 }
 
 #let front-page(title, subtitle, author, college, college-shield) = {
-  let lastline = "This dissertation is submitted for the degree of Doctor of Philosophy"
+  let lastline = "This thesis is submitted for the degree of Doctor of Philosophy"
   [
     #set par(justify: false)
     #align(center, image(width: 20em, "light-logo.svg"))
