@@ -145,7 +145,9 @@
 
   set par(leading: leading, first-line-indent: leading, justify: true)
 
-  if not techreport {
+  if techreport {
+    counter(page).update(3)
+  } else {
     front-page(title, subtitle, author, college, college-shield)
     clearpage(compact)
     declaration(author, date)
