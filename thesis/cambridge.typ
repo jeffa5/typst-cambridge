@@ -120,7 +120,7 @@
   techreport: false,
   body,
 ) = {
-  let leading = if compact or techreport { 0.65em } else { 1.5em }
+  let leading = if compact or techreport { 0.8em } else { 1.5em }
 
   set page(
     paper: "a4",
@@ -133,14 +133,14 @@
     ),
   )
 
-  show heading: set block(above: 2em, below: 2em)
+  show heading: set block(above: leading, below: leading)
   show heading.where(level: 1): it => {
     set text(1.6em, weight: "regular")
-    v(2em)
+    v(leading)
     it.body
     v(-0.5em)
     line(length: 100%, stroke: 0.5pt)
-    v(2em)
+    v(leading)
   }
 
   set par(leading: leading, first-line-indent: leading, justify: true)
@@ -212,7 +212,7 @@
 
   show heading.where(level: 1, numbering: "1") : it => {
     set text(1em, weight: "regular")
-    v(2em)
+    v(leading)
     h(1fr)
     [Chapter #counter(heading).display()]
     set text(1.6em, weight: "regular")
@@ -221,7 +221,7 @@
       #it.body
     ]
     line(length: 100%, stroke: 0.5pt)
-    v(2em)
+    v(leading)
   }
   show heading.where(level: 2): it => {
     set text(1.2em)
@@ -252,7 +252,7 @@
   techreport: false,
   body,
 ) = {
-  let leading = if compact or techreport { 0.65em } else { 1.5em }
+  let leading = if compact or techreport { 0.8em } else { 1.5em }
 
   set page(
     paper: "a4",
@@ -265,14 +265,14 @@
     ),
   )
 
-  show heading: set block(above: 2em, below: 2em)
+  show heading: set block(above: leading, below: leading)
   show heading.where(level: 1): it => {
     set text(1.6em, weight: "regular")
-    v(2em)
+    v(leading)
     it.body
     v(-0.5em)
     line(length: 100%, stroke: 0.5pt)
-    v(2em)
+    v(leading)
   }
 
   set par(leading: leading, first-line-indent: leading, justify: true)
@@ -308,7 +308,7 @@
 
   show heading.where(level: 1) : it => {
     set text(1em, weight: "regular")
-    v(2em)
+    v(leading)
     h(1fr)
     [Chapter #counter(heading).display()]
     set text(1.6em, weight: "regular")
@@ -317,7 +317,7 @@
       #it.body
     ]
     line(length: 100%, stroke: 0.5pt)
-    v(2em)
+    v(leading)
   }
   show heading.where(level: 2): it => {
     set text(1.2em)
