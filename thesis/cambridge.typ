@@ -249,9 +249,10 @@
 // For rendering chapters separately.
 #let chapter(
   compact: false,
+  techreport: false,
   body,
 ) = {
-  let leading = if compact { 1em } else { 1.5em }
+  let leading = if compact or techreport { 0.65em } else { 1.5em }
 
   set page(
     paper: "a4",
