@@ -117,9 +117,10 @@
   listing-selector: raw,
   use-glossary: true,
   use-index: true,
+  techreport: false,
   body,
 ) = {
-  let leading = if compact { 1em } else { 1.5em }
+  let leading = if compact or techreport { 1em } else { 1.5em }
 
   set page(
     paper: "a4",
@@ -144,10 +145,12 @@
 
   set par(leading: leading, first-line-indent: leading, justify: true)
 
-  front-page(title, subtitle, author, college, college-shield)
-  clearpage(compact)
-  declaration(author, date)
-  clearpage(compact)
+  if not techreport {
+    front-page(title, subtitle, author, college, college-shield)
+    clearpage(compact)
+    declaration(author, date)
+    clearpage(compact)
+  }
   summary-page(summary)
   clearpage(compact)
   acknowledgements-page(acknowledgements)
